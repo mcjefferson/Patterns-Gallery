@@ -5,20 +5,41 @@
 <meta charset="utf-8" />
 <title>SVG Pattern Gallery</title>
 <link href="style.css" rel="stylesheet" />
+<script src="jquery-1.9.1.min.js"></script>
 <style>
-html {
-    /* Workaround for oops: http://trac.webkit.org/changeset/145726 */
-    background-image: url("noise.png");
-}
+
 </style>
 <script>
-    function hover(element) {
-        document.body.style.backgroundImage = element.style.backgroundImage;
-    }
+    var backgrounds = [];
 
-    function unhover() {
-        document.body.style.removeProperty('background-image');
-    }
+    $(document).ready(function() {
+        $("#patterns > li").mouseenter(function(event) {
+            var element = event.currentTarget;
+            var background = backgrounds[this];
+            if (!background) {
+                background = document.body.appendChild(document.createElement('div'));
+                background.setAttribute('class', 'background');
+                background.style.backgroundImage = this.style.backgroundImage;
+                background.style.opacity = 0;
+                backgrounds[element] = background;
+            }
+            setTimeout(function() {
+                background.style.opacity = 1;
+            }, 1);
+        });
+
+        $("#patterns > li").mouseleave(function(event) {
+            var element = event.currentTarget;
+            var background = backgrounds[element];
+            backgrounds[element] = null;
+            if (background) {
+                background.style.opacity = 0;
+                $(background).bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(e) {
+                    document.body.removeChild(background);
+                });
+            }
+        });
+    });
 
     // Not sure if this is a good idea yet.
     function move(element, evt) {
@@ -39,7 +60,7 @@ html {
 
 <ul id="patterns">
 
-<li onmouseover="hover(this)" onmouseout="unhover()" onmousemove="move(this, event)" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNScgaGVpZ2h0PScxNSc+DQo8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPSdyZ2IoNTEsMTAyLDIwNCknLz4NCjxwYXRoIGQ9J00wIDE1TDcuNSAwTDE1IDE1WicgZmlsbD0nd2hpdGUnIGZpbGwtb3BhY2l0eT0nMC44Jy8+DQo8L3N2Zz4=');">
+<li onmousemove="move(this, event)" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNScgaGVpZ2h0PScxNSc+DQo8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPSdyZ2IoNTEsMTAyLDIwNCknLz4NCjxwYXRoIGQ9J00wIDE1TDcuNSAwTDE1IDE1WicgZmlsbD0nd2hpdGUnIGZpbGwtb3BhY2l0eT0nMC44Jy8+DQo8L3N2Zz4=');">
   <div>
     <a href="http://codepen.io/progers/pen/cnlBo">
       <h2>Half-Rombes</h2><p>Get the code</p>
@@ -47,7 +68,7 @@ html {
   </div>
 </li>
 
-<li onmouseover="hover(this)" onmouseout="unhover()" onmousemove="move(this, event)" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNScgaGVpZ2h0PScxNSc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjMjgyODI4Jy8+CiAgICA8Y2lyY2xlIGN4PSczJyBjeT0nNC4zJyByPScxLjgnIGZpbGw9JyMzOTM5MzknLz4KICAgIDxjaXJjbGUgY3g9JzMnIGN5PSczJyByPScxLjgnIGZpbGw9J2JsYWNrJy8+CiAgICA8Y2lyY2xlIGN4PScxMC41JyBjeT0nMTIuNScgcj0nMS44JyBmaWxsPScjMzkzOTM5Jy8+CiAgICA8Y2lyY2xlIGN4PScxMC41JyBjeT0nMTEuMycgcj0nMS44JyBmaWxsPSdibGFjaycvPgogIDwvc3ZnPg==');">
+<li onmousemove="move(this, event)" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNScgaGVpZ2h0PScxNSc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjMjgyODI4Jy8+CiAgICA8Y2lyY2xlIGN4PSczJyBjeT0nNC4zJyByPScxLjgnIGZpbGw9JyMzOTM5MzknLz4KICAgIDxjaXJjbGUgY3g9JzMnIGN5PSczJyByPScxLjgnIGZpbGw9J2JsYWNrJy8+CiAgICA8Y2lyY2xlIGN4PScxMC41JyBjeT0nMTIuNScgcj0nMS44JyBmaWxsPScjMzkzOTM5Jy8+CiAgICA8Y2lyY2xlIGN4PScxMC41JyBjeT0nMTEuMycgcj0nMS44JyBmaWxsPSdibGFjaycvPgogIDwvc3ZnPg==');">
   <div>
     <a href="http://codepen.io/progers/pen/ajDuA">
       <h2>Carbon fibre</h2><p>Get the code</p>
