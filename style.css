@@ -56,10 +56,6 @@ body > p, body > ul {
     line-height:1.5;
 }
 
-h2, p, ul:not(#patterns) {
-    text-shadow: 0 1px white;
-}
-
 h2 + p, p + ul {
     margin-top:.3em;
 }
@@ -75,7 +71,6 @@ body > ul > li > a, body > p > a {
 #help > li {
     display:inline;
     list-style:none;
-    text-shadow: 0 1px white;
 }
 
 #help > li + li:before {
@@ -182,5 +177,4 @@ body > ul > li > a, body > p > a {
     text-align:center;
     padding:.5em;
     border-top:1px solid rgba(0,0,0,.3);
-    text-shadow: 0 1px white;
 }
