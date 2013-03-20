@@ -5,30 +5,14 @@
 
 html {
     height: 100%;
-    background-image: url("noise.png");
-}
-
-.background {
-    position: fixed;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    background-image: url("noise.png");
-    z-index: -1;
-    -webkit-transition: opacity 0.6s ease;
-    -moz-transition: opacity 0.6s ease;
-    -ms-transition: opacity 0.6s ease;
-    -o-transition: opacity 0.6s ease;
-    transition: opacity 0.6s ease;
-    opacity: 0;
 }
 
 body {
     min-height:100%;
     padding:0 2.5em;
     font-family: Palatino, 'Palatino Linotype', serif;
-    /*background: #e8eff5 url('noise.png');*/
-    background-color: transparent;
     box-sizing: border-box;
+    background-image: url("noise.png");
 }
 
 h1, h2 {
@@ -49,6 +33,53 @@ a {
 
 #patterns  > li p {
     text-decoration: underline;
+}
+
+#patterns > li > span {
+    color: #222;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 0;
+    display: block;
+    margin-top: 41%;
+    font-size: 2em;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+#patterns > li:hover {
+    cursor: pointer;
+}
+
+#patterns > li:hover > span {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0.5;
+}
+
+#patterns > li:hover > span.contrast {
+    text-shadow: .1em .1em .1em rgba(0,0,0,.6);
+    color: #fff;
+}
+
+#patterns > li:hover > span.light {
+    color: #fff;
+}
+
+#patterns > li:hover > span.red {
+    color: #f00;
+}
+
+#patterns > li > span:hover {
+    opacity: 0.8;
 }
 
 body > p, body > ul {
@@ -166,6 +197,10 @@ body > ul > li > a, body > p > a {
     opacity:.7;
     text-shadow: none;
     text-align: right;
+}
+
+#patterns > li p:hover {
+    opacity: 1;
 }
 
 #patterns > li:target p {
