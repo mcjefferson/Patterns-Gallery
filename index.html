@@ -2,7 +2,6 @@
 <!-- Modified version of Lea Verou's http://lea.verou.me/css3patterns using SVG. -->
 <html>
 <head>
-<meta charset="utf-8" />
 <title>SVG Pattern Gallery</title>
 <link href="style.css" rel="stylesheet" />
 <script>
@@ -25,11 +24,13 @@
   }
 
   function useBackground(element) {
-    if (element.style.backgroundImage)
+    if (element.style.backgroundImage) {
       document.body.style.backgroundImage = element.style.backgroundImage;
+      document.body.style.backgroundSize = element.style.backgroundSize;
+    }
+    
   }
 
-  // hacky :(
   // Update the text's class so text is still readable on different backgrounds.
   function useTextStyle(className) {
     document.getElementById('help').className = className;
@@ -101,7 +102,8 @@
   </div>
 </li>
 
-<li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMCcgaGVpZ2h0PScyMCc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjOGEzJy8+CiAgICA8Y2lyY2xlIHI9JzkuMnB4JyBzdHJva2Utd2lkdGg9JzFweCcgc3Ryb2tlPScjNjEzJyBmaWxsPSdub25lJy8+CiAgICA8Y2lyY2xlIGN5PScxOC40cHgnIHI9JzkuMnB4JyBzdHJva2Utd2lkdGg9JzFweCcgc3Ryb2tlPScjNjEzJyBmaWxsPSdub25lJy8+CiAgICA8Y2lyY2xlIGN4PScxOC40cHgnIGN5PScxOC40cHgnIHI9JzkuMnB4JyBzdHJva2Utd2lkdGg9JzFweCcgc3Ryb2tlPScjNjEzJyBmaWxsPSdub25lJy8+CiAgPC9zdmc+');">
+<!-- This example shows how to work around https://bugzilla.mozilla.org/show_bug.cgi?id=600207 -->
+<li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MCcgaGVpZ2h0PSc0MCcgdmlld0JveD0nMCAwIDIwIDIwJz4KICAgIDxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9JyM4YTMnLz4KICAgIDxjaXJjbGUgcj0nOS4ycHgnIHN0cm9rZS13aWR0aD0nMXB4JyBzdHJva2U9JyM2MTMnIGZpbGw9J25vbmUnLz4KICAgIDxjaXJjbGUgY3k9JzE4LjRweCcgcj0nOS4ycHgnIHN0cm9rZS13aWR0aD0nMXB4JyBzdHJva2U9JyM2MTMnIGZpbGw9J25vbmUnLz4KICAgIDxjaXJjbGUgY3g9JzE4LjRweCcgY3k9JzE4LjRweCcgcj0nOS4ycHgnIHN0cm9rZS13aWR0aD0nMXB4JyBzdHJva2U9JyM2MTMnIGZpbGw9J25vbmUnLz4KICA8L3N2Zz4='); background-size: 20px 20px;">
   <span class="contrast">Try this</span>
   <div>
     <!-- design credit: Logan McBroom -->

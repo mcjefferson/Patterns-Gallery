@@ -108,7 +108,7 @@ body > ul > li > a, body > p > a {
 }
 
 #help > li + li:before {
-    content: '● ';
+    content: '- ';
     opacity:.4;
 }
 
@@ -138,10 +138,6 @@ body > ul > li > a, body > p > a {
                 0 0 0 15px rgba(255, 255, 255, .6) inset,
                 0 0 0 1px rgba(0,0,0,.5),
                 2px 2px 10px rgba(0,0,0,.6);
-    /* Overrride for Webkit bug */
-    -webkit-box-shadow: 0 0 0 15px rgba(255, 255, 255, .6) inset,
-                0 0 0 1px rgba(0,0,0,.5),
-                2px 2px 10px rgba(0,0,0,.6);
 }
 
 #patterns > li > div {
@@ -168,25 +164,13 @@ body > ul > li > a, body > p > a {
     border-left-width:0;
 }
 
-#patterns > li:target > div:after {
-    border-width:30px;
-    border-left-width:0;
-    top:-60px;
-    left:60px;
-}
-
-#patterns > li h2, #patterns > li p, #patterns > li textarea {
+#patterns > li h2, #patterns > li p {
     color:white;
     text-shadow: .05em .05em .1em rgba(0,0,0,.4);
 }
 
 #patterns > li h2 {
     font-size:140%;
-}
-
-#patterns > li:target h2 {
-    float: left;
-    margin-bottom: .3em;
 }
 
 #patterns > li .bytesize {
