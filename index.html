@@ -15,6 +15,8 @@
         var damnlies = li;
         return function(evt) {
           useBackground(damnlies);
+          if (damnlies.firstElementChild)
+              useTextStyle(damnlies.firstElementChild.className);
         };
       }());
       li.addEventListener('touchstart', callback);
@@ -25,6 +27,14 @@
   function useBackground(element) {
     if (element.style.backgroundImage)
       document.body.style.backgroundImage = element.style.backgroundImage;
+  }
+
+  // hacky :(
+  // Update the text's class so text is still readable on different backgrounds.
+  function useTextStyle(className) {
+    document.getElementById('help').className = className;
+    document.getElementById('whytext').className = className;
+    document.getElementById('supporttext').className = className;
   }
 </script>
 </head>
@@ -42,7 +52,7 @@
 <ul id="patterns">
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMCcgaGVpZ2h0PSczMCc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjMDBhOWYxJy8+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PSc2MCUnIGZpbGw9JyMyNmJhZjQnLz4KICA8L3N2Zz4=');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: http://lea.verou.me/demos/css3-patterns.html -->
     <a href="http://codepen.io/progers/pen/omKav">
@@ -52,7 +62,7 @@
 </li>
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc3MCcgaGVpZ2h0PSc3MCc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjYmJkODE3Jy8+CiAgICA8cmVjdCB3aWR0aD0nMTAwcHgnIGhlaWdodD0nMjVweCcgZmlsbD0nI2E5Y2UwMCcgdHJhbnNmb3JtPSdyb3RhdGUoNDUpJy8+CiAgICA8cmVjdCB3aWR0aD0nMjAwcHgnIGhlaWdodD0nMjVweCcgZmlsbD0nI2E5Y2UwMCcgdHJhbnNmb3JtPSd0cmFuc2xhdGUoMCAtNzApIHJvdGF0ZSg0NSknLz4KICA8L3N2Zz4=');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: http://lea.verou.me/demos/css3-patterns.html -->
     <a href="http://codepen.io/progers/pen/IvHfd">
@@ -62,7 +72,7 @@
 </li>
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1NicgaGVpZ2h0PScxMDAnPgogICAgPHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsbD0nI2Y4ZDIwMycvPgogICAgPHBhdGggZD0nTTI4IDY2TDAgNTBMMCAxNkwyOCAwTDU2IDE2TDU2IDUwTDI4IDY2TDI4IDEwMCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjZmZmNjI5JyBzdHJva2Utd2lkdGg9JzInLz4KICAgIDxwYXRoIGQ9J00yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQnIGZpbGw9J25vbmUnIHN0cm9rZT0nI2ZmZTUwMycgc3Ryb2tlLXdpZHRoPScyJy8+CiAgPC9zdmc+');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: based on a background on pandora.com -->
     <a href="http://codepen.io/progers/pen/kyadp">
@@ -112,7 +122,7 @@
 </li>
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc3NScgaGVpZ2h0PScxMDAnPgogICAgPHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsbD0nc2xhdGVncmF5Jy8+CiAgICA8Y2lyY2xlIGN4PScxMDAlJyBjeT0nNTAlJyByPScyOC4zJScgc3Ryb2tlLXdpZHRoPScxMnB4JyBzdHJva2U9JyM5YWE2YjInIGZpbGw9J25vbmUnLz4KICAgIDxjaXJjbGUgY3g9JzAlJyByPScyOC4zJScgc3Ryb2tlLXdpZHRoPScxMnB4JyBzdHJva2U9JyM5YWE2YjInIGZpbGw9J25vbmUnLz4KICAgIDxjaXJjbGUgY3k9JzEwMCUnIHI9JzI4LjMlJyBzdHJva2Utd2lkdGg9JzEycHgnIHN0cm9rZT0nIzlhYTZiMicgZmlsbD0nbm9uZScvPgogIDwvc3ZnPg==');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: http://lea.verou.me/css3patterns -->
     <a href="http://codepen.io/progers/pen/IhpnA">
@@ -122,7 +132,7 @@
 </li>
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MCcgaGVpZ2h0PSc1MCc+CiAgICA8cmVjdCB3aWR0aD0nNTAnIGhlaWdodD0nNTAnIGZpbGw9J2dyZXknLz4KICAgIDxyZWN0IHg9JzI1JyB3aWR0aD0nMjUnIGhlaWdodD0nNTAnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsLjUpJy8+CiAgPC9zdmc+');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: http://lea.verou.me/css3patterns -->
     <a href="http://codepen.io/progers/pen/kcCmx">
@@ -132,7 +142,7 @@
 </li>
 
 <li style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+CiAgICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjOWJhN2I0Jy8+CiAgICA8Y2lyY2xlIGN4PSc0MCcgY3k9JzQwJyByPSc0MCcgZmlsbD0nI2RlZicvPgogICAgPHBhdGggZD0nTTAgNDAgQTQwIDQwIDQ1IDAgMCA0MCAwIEE0MCA0MCAzMTUgMCAwIDgwIDQwIEE0MCA0MCA0NSAwIDAgNDAgODAgQTQwIDQwIDI3MCAwIDAgMCA0MFonIGZpbGw9JyM5YmE3YjQnLz4KICA8L3N2Zz4=');">
-  <span>Try this</span>
+  <span class="normal">Try this</span>
   <div>
     <!-- design credit: http://lea.verou.me/css3patterns -->
     <a href="http://codepen.io/progers/pen/EKsJc">
@@ -154,11 +164,11 @@
 </ul>
 
 <h2 id="whysvg">Why SVG?</h2>
-<p>
+<p id="whytext">
   SVG images are typically smaller than bitmap images and remain sharp when scaled on high-dpi screens.<br/>
   Unlike CSS3 gradients, SVG images are supported on IE9.<br/>
 <h2 id="browser-support">Browser support</h2>
-<p>
+<p id="supporttext">
   These patterns work on <strong>Firefox</strong>, <strong>Chrome</strong>, <strong>Safari</strong>, <strong>IE10</strong>, and <strong>IE9</strong>. Base64 encoding is required for IE and Firefox support.
 </p>
 <div id="footer"></div>
