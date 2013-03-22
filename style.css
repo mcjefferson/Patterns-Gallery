@@ -13,7 +13,7 @@ body {
     padding:0 2.5em;
     font-family: Palatino, 'Palatino Linotype', serif;
     box-sizing: border-box;
-    background-image: url("noise.png");
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KPGcgaWQ9J2MnPgo8cmVjdCB3aWR0aD0nMycgaGVpZ2h0PSczJyBmaWxsPScjZjNmM2YzJy8+PHJlY3QgeT0nMScgd2lkdGg9JzMnIGhlaWdodD0nMicgZmlsbD0nI2UzZTNlMycvPgo8L2c+Cjx1c2UgeGxpbms6aHJlZj0nI2MnIHg9JzMnIHk9JzMnLz4KPC9zdmc+");
 }
 
 h1, h2 {
