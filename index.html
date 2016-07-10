@@ -4,53 +4,6 @@
 <head>
 <title>SVG Patterns Gallery</title>
 <link href="style.css" rel="stylesheet" />
-<script>
-  function init() {
-    // add event listeners to the swatches
-    var lies = document.getElementById('patterns').children;
-    for (var lie = 0; lie < lies.length; lie++) {
-      // yeah... lexical scoping plz?
-      var li = lies[lie];
-      var callback = (function() {
-        var damnlies = li;
-        return function(evt) {
-          useBackground(damnlies);
-        };
-      }());
-      li.addEventListener('touchstart', callback);
-      li.addEventListener('mousedown', callback);
-    }
-
-    // use a specific pattern, if specified.
-    var patternName = window.location.hash.substring(1);
-    if (patternName) {
-      for (var lie = 0; lie < lies.length; lie++) {
-        var li = lies[lie];
-        if (li.getAttribute('name') == patternName) {
-          useBackground(li);
-          break;
-        }
-      }
-    }
-  }
-
-  function useBackground(element) {
-    if (element.style.backgroundImage) {
-      document.body.style.backgroundImage = element.style.backgroundImage;
-      document.body.style.backgroundSize = element.style.backgroundSize;
-      window.location.hash = element.getAttribute('name');
-    }
-    if (element.firstElementChild)
-      useTextStyle(element.firstElementChild.className);
-  }
-
-  // Update the text's class so text is still readable on different backgrounds.
-  function useTextStyle(className) {
-    document.getElementById('help').className = className;
-    document.getElementById('whytext').className = className;
-    document.getElementById('supporttext').className = className;
-  }
-</script>
 </head>
 <body onload="init()">
 <h1>SVG Patterns Gallery</h1>
@@ -266,6 +219,54 @@
   Base64 encoding is required for IE and Firefox support.
 </p>
 <div id="footer"></div>
+
+<script>
+  function init() {
+    // add event listeners to the swatches
+    var lies = document.getElementById('patterns').children;
+    for (var lie = 0; lie < lies.length; lie++) {
+      // yeah... lexical scoping plz?
+      var li = lies[lie];
+      var callback = (function() {
+        var damnlies = li;
+        return function(evt) {
+          useBackground(damnlies);
+        };
+      }());
+      li.addEventListener('touchstart', callback);
+      li.addEventListener('mousedown', callback);
+    }
+
+    // use a specific pattern, if specified.
+    var patternName = window.location.hash.substring(1);
+    if (patternName) {
+      for (var lie = 0; lie < lies.length; lie++) {
+        var li = lies[lie];
+        if (li.getAttribute('name') == patternName) {
+          useBackground(li);
+          break;
+        }
+      }
+    }
+  }
+
+  function useBackground(element) {
+    if (element.style.backgroundImage) {
+      document.body.style.backgroundImage = element.style.backgroundImage;
+      document.body.style.backgroundSize = element.style.backgroundSize;
+      window.location.hash = element.getAttribute('name');
+    }
+    if (element.firstElementChild)
+      useTextStyle(element.firstElementChild.className);
+  }
+
+  // Update the text's class so text is still readable on different backgrounds.
+  function useTextStyle(className) {
+    document.getElementById('help').className = className;
+    document.getElementById('whytext').className = className;
+    document.getElementById('supporttext').className = className;
+  }
+</script>
 
 </body>
 </html>
