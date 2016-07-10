@@ -54,12 +54,12 @@ a {
 
 #patterns > li:hover {
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 #patterns > li:hover > span {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
